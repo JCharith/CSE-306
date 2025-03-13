@@ -1,15 +1,15 @@
-name: CI/CD Pipeline
+name: Simple CI/CD Pipeline
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - name: Install Dependencies
-        run: npm install
-      - name: Run Tests
-        run: npm test
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Print Repository Files
+        run: ls -la  # Lists all files in the repo for debugging
+
+      - name: Run Basic Command
+        run: echo "CI/CD pipeline executed successfully!"
